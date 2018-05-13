@@ -1,0 +1,12 @@
+sudo: required
+language: python
+services:
+- docker
+script:
+- docker build -t get_builtwith:latest .
+- docker run -it --rm -e "TARGET_HOST=$TARGET_HOST" -e "BUILTWITH_TOKEN=$BUILTWITH_TOKEN"
+  get_builtwith:latest | base64 --decode
+env:
+  global:
+    - TARGET_HOST: builtwith.com
+    - secure: Ps4IK+o0qBegTQu3K4jyuqrtcYfrIEDhYHH790XOVC90a6zVF+LjN0rAgLG4HQUoHvtZy1KzzA/7ljWHeLVRG1rdyf94VY8wb+AKEWppgzlJe3nzEgNxaKdIa3N2k4M/bhC03y0v4XNRIEWb86EJ/XPi6mcI4lQXUUCXzEAcPJJ5US+ptD+KSml7P6oYqY6PtBoPmssgycybL7tryQEneF3+QaD1omAF+ewL6QxFSC4UYxTSceXNBQjosAL8zJ4Y8gAtUreTQScmXIzCYRhocIL2UJp8pogKdKVVZAI6Kz0kAWp1VVesN88dpFZ9YGGEWY5EHMa459i/txGFa2cBuWTPE5dmpMkyaVLXrQKmcJTq/0ATqALbYbMngHY+qXPRKRFC6IdehaPFcx7pDNZchP4xqaHWjwhb5mtZbXOhdS0hb5yTrZlwBN9Avdssbg7HvckJX3DAFpUEpZiLxWGNfTorBOWreIsexaHQmaFo6M15p44Ymq3/+i//VUSXWgcr5Ng9o1mOD1NLVkcP+OHiF5DXGmf4i50IDNA9mo5qGpBzeCpzqZHP1easELFNJwgFOadNgv7zUA3zmalS8MKCp6TtU3+/rVFcMDR9Ext1cqtLOrFhV4rOZeTSfXA/VR/y4/gNLEhw8PwU3twjDrYL1IN8eUdrCBwA43yEXkie5/8=
