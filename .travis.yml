@@ -5,7 +5,7 @@ services:
 script:
 - docker build -t get_builtwith:latest .
 - docker run -it --rm -e "TARGET_HOST=$TARGET_HOST" -e "BUILTWITH_TOKEN=$BUILTWITH_TOKEN"
-  get_builtwith:latest | base64 --decode
+  get_builtwith:latest
 env:
   global:
     - TARGET_HOST: builtwith.com
